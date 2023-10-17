@@ -1,0 +1,30 @@
+#overview of the projects
+
+1. use argv to get the file and check if the file is one or more on none.
+2 open the file and chech for the permission.
+3. if the met string is push  add the argument to the linked list.
+4. if the argument is pall remove the argument to the linked list.
+4. if there is an unknown opcode print the line.
+
+
+
+#operational summary:
+1. retrieve a file  from a directory.
+2. opens the .m file inside.
+3. locate the string and do the operation.
+
+
+
+
+
+
+#project breakdown
+1. create individual stack operations.
+
+
+
+
+
+
+#what to remember
+free the nodes and anywhere else you allocated the memory.
