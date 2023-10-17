@@ -1,20 +1,19 @@
-#include <tsdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include "monty.h"
 
-stack_t *add(stack_t *head)
+void add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *top = head;
+	stack_t *top = *stack;
 	stack_t *following = top->next;
 
-	if (head == NULL)
-		fprintf(stderr, "No data in the stack.");
-	if (head->next == NULL)
+	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
-		// print the error
+		fprintf(stderr, "L %u: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
 	}
-	following->n = top->n + following->n;
-	head = following;
+	following->n += top->n;
+	following->prev = NULL;
+	(*stack) = following;
 	free(top);
-	return (head);
 }

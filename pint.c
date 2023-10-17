@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "monty.h"
-void pint(stack_t *head)
+void pint(stack_t **stack, unsigned int line_number)
 {
-	if (head != NULL)
+	if ((*stack) != NULL)
 	{
-		printf("%d\n", head->data);
+		printf("%d\n", (*stack)->n);
 	}
 	else
 		fprintf(stderr, "stack is empty.\n");
