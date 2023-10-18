@@ -1,5 +1,15 @@
 #ifndef MONTY_H
 #define MONTY_H
+
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <ctype.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -30,14 +40,19 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern stack_t *temp;
 extern int data;
 
-char **split_string(char *str, const char *delim);
+char *split_string(char *str, const char *delim);
 void add(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
-void push(stack_t **stack ,unsigned line_number);
+void push(stack_t **head ,unsigned int line_number);
 void nop(void);
 void swap(stack_t **stack, unsigned int line_number);
+int parser(char **trimmed_line, unsigned int *count, stack_t **stack);
+char *trim_whitespace(char *str);
+ssize_t getlines(char **lineptr, size_t *n, FILE *stream);
+int read_file(char *filename, stack_t **stack);
 #endif

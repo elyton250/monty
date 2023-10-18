@@ -1,17 +1,23 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "monty.h"
 void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = *stack;
+	stack_t *pointer = temp;
 	int count = 0;
-	(void)(line_number);
 
-	while (temp != NULL)
+	(void) line_number;
+	(void) count;
+	(void) stack;
+
+	if (pointer == NULL)
+		printf("Stack is empty\n");
+	else
 	{
-		printf("%d", temp->n);
-		count++;
-		temp = temp->next;
+		while (pointer != NULL)
+		{
+			printf("%d\n", pointer->n);
+			count++;
+			pointer = pointer->next;
+		}
 	}
-	printf("\n");
+	printf("%d elements printed\n", count);
 }
