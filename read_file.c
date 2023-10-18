@@ -28,6 +28,9 @@ int read_file(char *filename, stack_t **stack)
         if (line[n_read - 1] == '\n' && n_read > 0)
             line[n_read - 1] = '\0';
 
+	if (line[n_read - 2] == '$')
+		line[n_read - 2] = ' ';
+
         trimmed_line = trim_whitespace(line);
 
         if (n_read == 0 || *trimmed_line == '\0' || trimmed_line == NULL)

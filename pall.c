@@ -1,7 +1,7 @@
 #include "monty.h"
 void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *pointer = temp;
+	stack_t *pointer = (*stack);
 	int count = 0;
 
 	(void) line_number;

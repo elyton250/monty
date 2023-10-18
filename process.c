@@ -23,8 +23,8 @@ int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
 {
     long unsigned int i = 0;
     int found_ins = 0;
-    char *opcode = split_string(*trimmed_line, " \t\n$");
-    char *argument = split_string(NULL, " \t\n$");
+    char *opcode = split_string(*trimmed_line, " \t\n");
+    char *argument = split_string(NULL, " \t\n");
 
     if (argument != NULL)
 	    data = atoi(argument);
