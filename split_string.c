@@ -9,48 +9,40 @@
  * Return: Array of strings.
  */
 
-char **split_string(char *str, const char *delim)
+char *split_string(char *str, const char *delim)
 {
-	int count = 0, i = 0, j = 0, t = 0, start = 0;
-	char **tokens = NULL;
+	static char *last_pos;
+	char *start;
 
-	while (str[i])
-	{
-		if (strchr(delim, str[i]))
-		{
-			count++;
-			while (strchr(delim, str[i]) && str[i])
-				i++;
-			if (!str[i] && strchr(delim, str[i - 1]))
-				count++;
-		}
-		else
-			i++;
-	}
-	tokens = malloc((count + 2) * sizeof(char *));
-	while (str[t])
-	{
-		if (strstr(&str[t], delim) == str + t || !str[t + 1])
-		{
-			if (strlen(delim) > 1 && strstr(&str[t], delim) == str + t)
-				t += strlen(delim) - 1;
-			if (!strchr(delim, str[t]) && str[t + 1] == '\0')
-				t++;
-			if ((t - start) > 0)
-			{
-				tokens[j] = malloc(t - start + 1);
-				strncpy(tokens[j], &str[start], t - start);
-				tokens[j][t - start] = '\0';
-				j++;
-			}
-			while (strchr(delim, str[t]) && str[t])
-				t++;
-			start = t;
-		}
-		else
-			t++;
-	}
-	tokens[j] = NULL;
+	/* Check if str is NULL */
+	if (str != NULL)
+		last_pos = str;
 
-	return (tokens);
+	/* Check if last_pos is still NULL */
+	if (last_pos == NULL || *last_pos == '\0')
+		return (NULL);
+
+	/* Find the first token */
+	while (*last_pos != '\0' && strchr(delim, *last_pos) != NULL)
+		last_pos++;
+
+	/* Check if there are no tokens left */
+	if (*last_pos == '\0')
+		return (NULL);
+
+	/* Update the start position */
+	start = last_pos;
+
+	/* Find the end of the token */
+	while (*last_pos != '\0' && strchr(delim, *last_pos) == NULL)
+		last_pos++;
+
+	/* Null-terminate the token */
+	if (*last_pos != '\0')
+	{
+		*last_pos = '\0';
+		last_pos++;
+	}
+
+	return (start);
 }
