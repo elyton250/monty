@@ -8,7 +8,7 @@
  */
 int main(int argc, char *argv[])
 {
-	stack_t *stack = NULL;
+	my_stack_t *stack = NULL;
 	/*char *tokens [2];*/
 
 	if (argc != 2)

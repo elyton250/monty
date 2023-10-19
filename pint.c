@@ -9,15 +9,13 @@
  * Return: Nothing
  */
 
-void pint(stack_t **stack, unsigned int line_number)
+void pint(my_stack_t **stack, unsigned int line_number)
 {
-	(void) line_number;
-
 	if ((*stack) != NULL)
 	{
 		printf("%d\n", (*stack)->n);
 	}
 	else
-		fprintf(stderr, "stack is empty.\n");
+		fprintf(stderr, "L%u: can't pint, stack is empty.\n", line_number);
 }
 

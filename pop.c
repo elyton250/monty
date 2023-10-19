@@ -8,9 +8,9 @@
  * Return: Nothing
  */
 
-void pop(stack_t **stack, unsigned int line_number)
+void pop(my_stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = (*stack);
+	my_stack_t *temp = (*stack);
 
 
 	if ((*stack) == NULL)

@@ -7,10 +7,10 @@
  * Return: Nothing
  */
 
-void add(stack_t **stack, unsigned int line_number)
+void add(my_stack_t **stack, unsigned int line_number)
 {
-	stack_t *top = *stack;
-	stack_t *following = top->next;
+	my_stack_t *top = *stack;
+	my_stack_t *following = top->next;
 
 	if ((*stack) == NULL || (*stack)->next == NULL)
 	{

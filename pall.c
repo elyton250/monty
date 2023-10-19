@@ -6,9 +6,9 @@
  *
  * Return: Nothing
  */
-void pall(stack_t **stack, unsigned int line_number)
+void pall(my_stack_t **stack, unsigned int line_number)
 {
-	stack_t *pointer = (*stack);
+	my_stack_t *pointer = (*stack);
 	int count = 0;
 
 	(void) line_number;

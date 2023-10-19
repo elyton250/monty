@@ -7,7 +7,7 @@
 *Return: Nothing
 */
 
-int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
+int parser(char **trimmed_line, unsigned int *count, my_stack_t **stack)
 {
 	unsigned int i = 0;
 	int data, found_ins = 0;

@@ -7,9 +7,9 @@
  * Return: 0 success otherwise -1
  */
 
-void push(stack_t **head, unsigned int line_number, int data)
+void push(my_stack_t **head, unsigned int line_number, int data)
 {
-	stack_t *new_node = malloc(sizeof(stack_t));
+	my_stack_t *new_node = malloc(sizeof(my_stack_t));
 
 	if (new_node == NULL)
 	{

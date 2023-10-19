@@ -24,7 +24,7 @@ typedef struct stack_s
 	int n;
 	struct stack_s *prev;
 	struct stack_s *next;
-} stack_t;
+} my_stack_t;
 
 /**
  * struct instruction_s - opcode and its function
@@ -37,28 +37,28 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+	void (*f)(my_stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern stack_t *temp;
+extern my_stack_t *temp;
 extern int data;
 
 char *split_string(char *str, const char *delim);
-void add(stack_t **stack, unsigned int line_number);
-void sub(stack_t **stack, unsigned int line_number);
-void divide(stack_t **stack, unsigned int line_number);
-void mul(stack_t **stack, unsigned int line_number);
-void mod(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-void push(stack_t **head, unsigned int line_number, int data);
-void nop(stack_t **head, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
-void free_stack(stack_t **stack);
-int parser(char **trimmed_line, unsigned int *count, stack_t **stack);
+void add(my_stack_t **stack, unsigned int line_number);
+void sub(my_stack_t **stack, unsigned int line_number);
+void divide(my_stack_t **stack, unsigned int line_number);
+void mul(my_stack_t **stack, unsigned int line_number);
+void mod(my_stack_t **stack, unsigned int line_number);
+void pall(my_stack_t **stack, unsigned int line_number);
+void pint(my_stack_t **stack, unsigned int line_number);
+void pop(my_stack_t **stack, unsigned int line_number);
+void push(my_stack_t **head, unsigned int line_number, int data);
+void nop(my_stack_t **head, unsigned int line_number);
+void swap(my_stack_t **stack, unsigned int line_number);
+void free_stack(my_stack_t **stack);
+int parser(char **trimmed_line, unsigned int *count, my_stack_t **stack);
 char *trim_whitespace(char *str);
 ssize_t getlines(char **lineptr, size_t *n, FILE *stream);
-int read_file(char *filename, stack_t **stack);
-void pchar(stack_t **head, unsigned int line_number);
+int read_file(char *filename, my_stack_t **stack);
+void pchar(my_stack_t **head, unsigned int line_number);
 #endif

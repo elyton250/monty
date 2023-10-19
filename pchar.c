@@ -7,7 +7,7 @@
  * Return: Nothing
  */
 
-void pchar(stack_t **stack, unsigned int line_number)
+void pchar(my_stack_t **stack, unsigned int line_number)
 {
 	int data;
 

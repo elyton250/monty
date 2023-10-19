@@ -4,9 +4,9 @@
   *free_stack - it frees the stack once the program closes
   *@stack: the head of the stack
   */
-void free_stack(stack_t **stack)
+void free_stack(my_stack_t **stack)
 {
-	stack_t *current;
+	my_stack_t *current;
 
 	if ((*stack) != NULL)
 	{

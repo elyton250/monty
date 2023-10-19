@@ -6,7 +6,7 @@
 * Return: Nothing
 */
 
-int read_file(char *filename, stack_t **stack)
+int read_file(char *filename, my_stack_t **stack)
 {
 	char *trimmed_line, *line = NULL;
 	ssize_t n_read;
@@ -22,17 +22,14 @@ int read_file(char *filename, stack_t **stack)
 	while ((n_read = getlines(&line, &n, makefile)) != -1)
 	{
 		line_number++;
-
 		if (line[n_read - 1] == '\n' && n_read > 0)
 			line[n_read - 1] = '\0';
-
 		if (line[n_read - 2] == '$')
 			line[n_read - 2] = ' ';
-
 		trimmed_line = trim_whitespace(line);
-
 		if (n_read == 0 || *trimmed_line == '\0' || trimmed_line == NULL)
 		{
+			free(trimmed_line);
 			return (EXIT_FAILURE);
 		}
 		else
@@ -41,11 +38,13 @@ int read_file(char *filename, stack_t **stack)
 			{
 				if (parser(&trimmed_line, &line_number, stack) != 0)
 				{
+					free(trimmed_line);
 					return (EXIT_FAILURE);
 				}
 			}
 		}
 	}
+	free(trimmed_line);
 	fclose(makefile);
 	return (0);
 }
