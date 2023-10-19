@@ -1,4 +1,11 @@
 #include "monty.h"
+/**
+ * pall - Prints everything in a stack
+ * @stack: the stack to be printed
+ * @line_number: The line number of executing line
+ *
+ * Return: Nothing
+ */
 void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *pointer = (*stack);
@@ -8,9 +15,7 @@ void pall(stack_t **stack, unsigned int line_number)
 	(void) count;
 	(void) stack;
 
-	if (pointer == NULL)
-		printf("Stack is empty\n");
-	else
+	if (pointer != NULL)
 	{
 		while (pointer != NULL)
 		{
@@ -19,5 +24,4 @@ void pall(stack_t **stack, unsigned int line_number)
 			pointer = pointer->next;
 		}
 	}
-	printf("%d elements printed\n", count);
 }

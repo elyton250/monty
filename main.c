@@ -1,5 +1,11 @@
 #include "monty.h"
-
+/**
+ * main - Entry Point
+ * @argc: The number of arguments passed
+ * @argv: The arguments passed
+ *
+ * Return: 0 success otherwise -1
+ */
 int main(int argc, char *argv[])
 {
 	stack_t *stack = NULL;

@@ -8,42 +8,45 @@
  *
  * Return: Number of characters read, -1 on error or EOF
  */
-ssize_t getlines(char **lineptr, size_t *n, FILE *stream) {
-    size_t i = 0;
-    int c;
+ssize_t getlines(char **lineptr, size_t *n, FILE *stream)
+{
+	size_t i = 0;
+	int c;
 
-    if (*lineptr == NULL || *n == 0)
-    {
-        *n = 128;
-        *lineptr = malloc(*n);
-        if (*lineptr == NULL)
-            return (-1);
-    }
+	if (*lineptr == NULL || *n == 0)
+	{
+		*n = 128;
+		*lineptr = malloc(*n);
+		if (*lineptr == NULL)
+			return (-1);
+	}
 
-    /*Read characters from the file until a newline or EOF is encountered*/
-    while ((c = fgetc(stream)) != EOF)
-    {
-        if (i == *n - 1)
-        {
-            /*Resize the buffer if needed*/
-            size_t new_size = *n + 128;
-            char *new_ptr = realloc(*lineptr, new_size);
-            if (new_ptr == NULL)
-                return (-1);
+	/*Read characters from the file until a newline or EOF is encountered*/
+	while ((c = fgetc(stream)) != EOF)
+	{
+		if (i == *n - 1)
+		{
+			/*Resize the buffer if needed*/
+			size_t new_size = *n + 128;
+			char *new_ptr = realloc(*lineptr, new_size);
 
-            *lineptr = new_ptr;
-            *n = new_size;
-        }
+			if (new_ptr == NULL)
+				return (-1);
 
-        (*lineptr)[i++] = c;
+			*lineptr = new_ptr;
+			*n = new_size;
+		}
 
-        if (c == '\n') {
-            (*lineptr)[i] = '\0';
-            return i;
-        }
-    }
-    if (i == 0)
-        return -1; 
-    (*lineptr)[i] = '\0';
-    return i;
+		(*lineptr)[i++] = c;
+
+		if (c == '\n')
+		{
+			(*lineptr)[i] = '\0';
+			return (i);
+		}
+	}
+	if (i == 0)
+		return (-1);
+	(*lineptr)[i] = '\0';
+	return (i);
 }
