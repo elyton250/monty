@@ -1,4 +1,4 @@
-#push 12$
-push 14$
-#push 15$
-pall$
+push 12$
+push 72$
+push 150$
+pchar$

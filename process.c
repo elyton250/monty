@@ -24,6 +24,7 @@ int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
 		{"add", add},
 		/*{"nop", nop},*/
 		/*{"sub", sub},*/
+		{"pchar", pchar},
 	};
 
 	if (argument != NULL)
