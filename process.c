@@ -7,7 +7,6 @@
 */
 
 int data;
-
 int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
 {
 	unsigned int i = 0;
@@ -25,12 +24,11 @@ int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
 		{"nop", nop},
 		{"pchar", pchar},
 		{"sub", sub},
-		{"div", divide},
+		{"div", div},
 		{"mul", mul},
 		{"mod", mod},
 		{"pstr", pstr},
 	};
-
 	if (argument != NULL)
 		data = atoi(argument);
 	for (i = 0; i < sizeof(instruction_set) / sizeof(instruction_set[0]); i++)
@@ -42,13 +40,11 @@ int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
 			break;
 		}
 	}
-
 	if (!found_ins)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", *count, opcode);
 		free_stack(stack);
 		return (EXIT_FAILURE);
 	}
-
 	return (0);
 }
