@@ -31,7 +31,6 @@ int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
 
 	(void) stack;
 	printf("The current operation is %s\n", opcode);
-
 	for (i = 0; i < sizeof(instruction_set) / sizeof(instruction_set[0]); i++)
 	{
 		if (strcmp(opcode, instruction_set[i].opcode) == 0)
