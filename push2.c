@@ -16,7 +16,7 @@ void push(stack_t **head, unsigned int line_number)
 		free_stack(head);
 		exit(EXIT_FAILURE);
 	}
-	if (data)
+	if (sizeof(data) == sizeof(int))
 	{
 		if ((*head) == NULL)
 		{

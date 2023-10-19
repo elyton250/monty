@@ -1,13 +1,13 @@
 #include "monty.h"
 /**
- * div - divides the elements in the stack and append the result to the stack
+ * divide - divides the elements in the stack and append the result to the stack
  * @stack: The stack
  * @line_number: The line number of the opcode
  *
  * Return: Nothing
  */
 
-void div(stack_t **stack, unsigned int line_number)
+void divide(stack_t **stack, unsigned int line_number)
 {
 	stack_t *top = *stack;
 	stack_t *following = top->next;

@@ -24,13 +24,12 @@ int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
 		{"nop", nop},
 		{"pchar", pchar},
 		{"sub", sub},
-		{"div", div},
+		{"div", divide},
 		{"mul", mul},
 		{"mod", mod},
 		{"pstr", pstr},
 	};
-	if (argument != NULL)
-		data = atoi(argument);
+	data = (argument == 0) ? 0 : atoi(argument);
 	for (i = 0; i < sizeof(instruction_set) / sizeof(instruction_set[0]); i++)
 	{
 		if (strcmp(opcode, instruction_set[i].opcode) == 0)
