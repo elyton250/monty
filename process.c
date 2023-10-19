@@ -10,7 +10,7 @@
 int parser(char **trimmed_line, unsigned int *count, my_stack_t **stack)
 {
 	unsigned int i = 0;
-	int data, found_ins = 0;
+	int found_ins = 0;
 	char *opcode = split_string(*trimmed_line, " \t\n");
 	char *argument = split_string(NULL, " \t\n");
 
@@ -27,12 +27,10 @@ int parser(char **trimmed_line, unsigned int *count, my_stack_t **stack)
 		{"mul", mul},
 		{"mod", mod},
 	};
-	if (argument != NULL)
-		data = (strcmp(argument, "0") == 0) ? 0 : atoi(argument);
 
 	if (strcmp(opcode, "push") == 0)
 	{
-		push(stack, *count, data);
+		push(stack, *count, argument);
 		found_ins = 1;
 	}
 	for (i = 0; i < sizeof(instruction_set) / sizeof(instruction_set[0]); i++)

@@ -10,6 +10,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <ctype.h>
+#include <stdbool.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -52,7 +53,7 @@ void mod(my_stack_t **stack, unsigned int line_number);
 void pall(my_stack_t **stack, unsigned int line_number);
 void pint(my_stack_t **stack, unsigned int line_number);
 void pop(my_stack_t **stack, unsigned int line_number);
-void push(my_stack_t **head, unsigned int line_number, int data);
+void push(my_stack_t **head, unsigned int line_number, char *data);
 void nop(my_stack_t **head, unsigned int line_number);
 void swap(my_stack_t **stack, unsigned int line_number);
 void free_stack(my_stack_t **stack);
@@ -61,4 +62,5 @@ char *trim_whitespace(char *str);
 ssize_t getlines(char **lineptr, size_t *n, FILE *stream);
 int read_file(char *filename, my_stack_t **stack);
 void pchar(my_stack_t **head, unsigned int line_number);
+bool isinteger(const char *str);
 #endif

@@ -7,7 +7,7 @@
  * Return: 0 success otherwise -1
  */
 
-void push(my_stack_t **head, unsigned int line_number, int data)
+void push(my_stack_t **head, unsigned int line_number, char *data)
 {
 	my_stack_t *new_node = malloc(sizeof(my_stack_t));
 
@@ -17,18 +17,19 @@ void push(my_stack_t **head, unsigned int line_number, int data)
 		free_stack(head);
 		exit(EXIT_FAILURE);
 	}
-	if (sizeof(data) == sizeof(int))
+	if (isinteger(data))
 	{
+		int n = (strcmp(data, "0") == 0) ? 0 : atoi(data);
 		if ((*head) == NULL)
 		{
-			new_node->n = data;
+			new_node->n = n;
 			new_node->next = NULL;
 			new_node->prev = NULL;
 			(*head) = new_node;
 		}
 		else
 		{
-			new_node->n = data;
+			new_node->n = n;
 			new_node->next = (*head);
 			(*head)->prev = new_node;
 			(*head) = new_node;
