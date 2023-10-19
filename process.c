@@ -28,7 +28,8 @@ int parser(char **trimmed_line, unsigned int *count, my_stack_t **stack)
 		{"mod", mod},
 	};
 	if (argument != NULL)
-		data = atoi(argument);
+		data = (strcmp(argument, "0") == 0) ? 0 : atoi(argument);
+
 	if (strcmp(opcode, "push") == 0)
 	{
 		push(stack, *count, data);
