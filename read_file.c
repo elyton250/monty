@@ -27,15 +27,12 @@ int read_file(char *filename, stack_t **stack)
 
 		if (line[n_read - 1] == '\n' && n_read > 0)
 			line[n_read - 1] = '\0';
-
 		if (line[n_read - 2] == '$')
 			line[n_read - 2] = ' ';
-
 		trimmed_line = trim_whitespace(line);
 
 		if (n_read == 0 || *trimmed_line == '\0' || trimmed_line == NULL)
 		{
-			/*TODO: What to print to stderr*/
 			free(trimmed_line);
 			return (EXIT_FAILURE);
 		}
@@ -44,13 +41,10 @@ int read_file(char *filename, stack_t **stack)
 			if (trimmed_line[0] != '#')
 			{
 				if (parser(&trimmed_line, &line_number, stack) != 0)
-				{
 					return (EXIT_FAILURE);
-				}
 			}
 		}
 	}
 	fclose(makefile);
-
 	return (0);
 }

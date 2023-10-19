@@ -28,6 +28,7 @@ int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
 		{"div", divide},
 		{"mul", mul},
 		{"mod", mod},
+		{"pstr", pstr},
 	};
 
 	if (argument != NULL)
