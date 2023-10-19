@@ -22,7 +22,6 @@ int main(int argc, char *argv[])
 		free_stack(&stack);
 		return (EXIT_FAILURE);
 	}
-
 	free_stack(&stack);
 
 	/*free(tokens);*/

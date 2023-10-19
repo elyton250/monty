@@ -45,6 +45,7 @@ int read_file(char *filename, stack_t **stack)
 			{
 				if (parser(&trimmed_line, &line_number, stack) != 0)
 				{
+					free(trimmed_line);
 					return (EXIT_FAILURE);
 				}
 			}
