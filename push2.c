@@ -15,24 +15,26 @@ void push(stack_t **head, unsigned int line_number)
 		fprintf(stderr, "Error during allocation\n");
 		exit(EXIT_FAILURE);
 	}
-
-	if (!data)
+	if (data)
 	{
-		fprintf(stderr, "L %u: usage: push integer\n", line_number);
-	}
-
-	if ((*head) == NULL)
-	{
-		new_node->n = data;
-		new_node->next = NULL;
-		new_node->prev = NULL;
-		(*head) = new_node;
+		if ((*head) == NULL)
+		{
+			new_node->n = data;
+			new_node->next = NULL;
+			new_node->prev = NULL;
+			(*head) = new_node;
+		}
+		else
+		{
+			new_node->n = data;
+			new_node->next = (*head);
+			(*head)->prev = new_node;
+			(*head) = new_node;
+		}
 	}
 	else
 	{
-		new_node->n = data;
-		new_node->next = (*head);
-		(*head)->prev = new_node;
-		(*head) = new_node;
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 }
