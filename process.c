@@ -23,7 +23,10 @@ int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
 		{"swap", swap},
 		{"add", add},
 		/*{"nop", nop},*/
-		/*{"sub", sub},*/
+		{"sub", sub},
+		{"div", divide},
+		{"mul", mul},
+		{"mod", mod},
 	};
 
 	if (argument != NULL)
@@ -43,7 +46,7 @@ int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
 
 	if (!found_ins)
 	{
-		fprintf(stderr, "L %d: unknown instruction %s\n", *count, opcode);
+		fprintf(stderr, "L%d: unknown instruction %s\n", *count, opcode);
 		return (EXIT_FAILURE);
 	}
 
