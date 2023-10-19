@@ -22,6 +22,7 @@ int parser(char **trimmed_line, unsigned int *count, my_stack_t **stack)
 		{"add", add},
 		{"nop", nop},
 		{"pchar", pchar},
+		{"pstr", pstr},
 		{"sub", sub},
 		{"div", divide},
 		{"mul", mul},

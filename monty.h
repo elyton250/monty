@@ -62,5 +62,6 @@ char *trim_whitespace(char *str);
 ssize_t getlines(char **lineptr, size_t *n, FILE *stream);
 int read_file(char *filename, my_stack_t **stack);
 void pchar(my_stack_t **head, unsigned int line_number);
+void pstr(my_stack_t **stack, unsigned int line_number);
 bool isinteger(const char *str);
 #endif
