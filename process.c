@@ -22,7 +22,7 @@ int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
-		{"nop", nop},
+		/*{"nop", nop},*/
 		{"pchar", pchar},
 		{"sub", sub},
 		{"div", divide},
@@ -32,9 +32,6 @@ int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
 
 	if (argument != NULL)
 		data = atoi(argument);
-
-	(void) stack;
-	printf("The current operation is %s\n", opcode);
 	for (i = 0; i < sizeof(instruction_set) / sizeof(instruction_set[0]); i++)
 	{
 		if (strcmp(opcode, instruction_set[i].opcode) == 0)

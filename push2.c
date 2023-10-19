@@ -1,12 +1,10 @@
 #include "monty.h"
 /**
  * push - Adds an element to the list
- * @head -head of the node
- *
+ * @head: head of the node
+ *@line_number: the error line
  * Return: 0 success otherwise -1
  */
-
-stack_t *temp = NULL;
 
 void push(stack_t **head, unsigned int line_number)
 {
