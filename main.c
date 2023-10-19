@@ -19,8 +19,10 @@ int main(int argc, char *argv[])
 
 	if (read_file(argv[1], &stack) != 0)
 	{
+		free_stack(&stack);
 		return (EXIT_FAILURE);
 	}
+	free_stack(&stack);
 
 	/*free(tokens);*/
 	return (0);

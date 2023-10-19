@@ -1,6 +1,7 @@
 #include "monty.h"
 /**
- * sub - substracts the elements in the stack and append the result to the stack
+ * sub - substracts the elements in the stack
+ *and append the result to the stack
  * @stack: The stack
  * @line_number: The line number of the opcode
  *
@@ -15,6 +16,7 @@ void sub(stack_t **stack, unsigned int line_number)
 	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	following->n = following->n - top->n;

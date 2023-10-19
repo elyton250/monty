@@ -33,9 +33,6 @@ int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
 
 	if (argument != NULL)
 		data = atoi(argument);
-
-	(void) stack;
-	printf("The current operation is %s\n", opcode);
 	for (i = 0; i < sizeof(instruction_set) / sizeof(instruction_set[0]); i++)
 	{
 		if (strcmp(opcode, instruction_set[i].opcode) == 0)
@@ -49,6 +46,7 @@ int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
 	if (!found_ins)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", *count, opcode);
+		free_stack(stack);
 		return (EXIT_FAILURE);
 	}
 
