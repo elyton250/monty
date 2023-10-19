@@ -53,7 +53,7 @@ void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void push(stack_t **head, unsigned int line_number);
-void nop(void);
+void nop(stack_t **head, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 int parser(char **trimmed_line, unsigned int *count, stack_t **stack);
 char *trim_whitespace(char *str);
