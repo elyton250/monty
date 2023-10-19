@@ -12,7 +12,7 @@ ssize_t getlines(char **lineptr, size_t *n, FILE *stream)
 {
 	size_t i = 0;
 	int c;
-	/*size_t  new_size = *n + 128;*/
+	size_t  new_size = *n + 128;
 	char new_ptr[1024];
 
 	if (*lineptr == NULL || *n == 0)
@@ -22,17 +22,15 @@ ssize_t getlines(char **lineptr, size_t *n, FILE *stream)
 		if (*lineptr == NULL)
 			return (-1);
 	}
-
-	/*Read characters from the file until a newline or EOF is encountered*/
 	if (*lineptr != NULL)
 	{
 		while ((c = fgetc(stream)) != EOF)
 		{
 			if (i == *n - 1)
 			{
-				/*Resize the buffer if needed*/
-				/*size_t new_size = *n + 128;
-				char *new_ptr = realloc(*lineptr, new_size);*/
+				/*Resize the buffer if neededi*/
+				/*size_t new_size = *n + 128;*/
+				/*char *new_ptr = realloc(*lineptr, new_size);*/
 
 				if (new_ptr == NULL)
 					return (-1);

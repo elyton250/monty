@@ -13,14 +13,12 @@ int read_file(char *filename, stack_t **stack)
 	size_t n = 0;
 	FILE *makefile = fopen(filename, "r");
 	unsigned int line_number = 0;
-	(void) line_number;
 
 	if (makefile == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		return (EXIT_FAILURE);
 	}
-
 	while ((n_read = getlines(&line, &n, makefile)) != -1)
 	{
 		line_number++;
@@ -35,8 +33,6 @@ int read_file(char *filename, stack_t **stack)
 
 		if (n_read == 0 || *trimmed_line == '\0' || trimmed_line == NULL)
 		{
-			/*TODO: What to print to stderr*/
-			free(trimmed_line);
 			return (EXIT_FAILURE);
 		}
 		else
@@ -45,13 +41,11 @@ int read_file(char *filename, stack_t **stack)
 			{
 				if (parser(&trimmed_line, &line_number, stack) != 0)
 				{
-					free(trimmed_line);
 					return (EXIT_FAILURE);
 				}
 			}
 		}
 	}
 	fclose(makefile);
-
 	return (0);
 }
