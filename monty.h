@@ -55,6 +55,7 @@ void pop(stack_t **stack, unsigned int line_number);
 void push(stack_t **head, unsigned int line_number);
 void nop(stack_t **head, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
+void free_stack(stack_t **stack);
 int parser(char **trimmed_line, unsigned int *count, stack_t **stack);
 char *trim_whitespace(char *str);
 ssize_t getlines(char **lineptr, size_t *n, FILE *stream);

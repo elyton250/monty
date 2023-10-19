@@ -45,6 +45,7 @@ int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
 	if (!found_ins)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", *count, opcode);
+		free_stack(stack);
 		return (EXIT_FAILURE);
 	}
 

@@ -13,6 +13,7 @@ void push(stack_t **head, unsigned int line_number)
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error during allocation\n");
+		free_stack(head);
 		exit(EXIT_FAILURE);
 	}
 	if (data)
@@ -35,6 +36,7 @@ void push(stack_t **head, unsigned int line_number)
 	else
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		free_stack(head);
 		exit(EXIT_FAILURE);
 	}
 }
