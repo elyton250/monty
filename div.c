@@ -1,6 +1,7 @@
 #include "monty.h"
 /**
- * divide - divides the elements in the stack and append the result to the stack
+ * divide - divides the elements in the stack
+ *and append the result to the stack
  * @stack: The stack
  * @line_number: The line number of the opcode
  *

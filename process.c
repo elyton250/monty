@@ -1,21 +1,20 @@
 #include "monty.h"
 /**
-* parser - Splits line into command and args
-* @line: the line from the file
-* @count: lines count
-* Return: Nothing
+*parser - Splits line into command and args
+*@trimmed_line: the line from the file
+*@stack: the head of the stack
+*@count: lines count
+*Return: Nothing
 */
 
-int data;
 int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
 {
 	unsigned int i = 0;
-	int found_ins = 0;
+	int data, found_ins = 0;
 	char *opcode = split_string(*trimmed_line, " \t\n");
 	char *argument = split_string(NULL, " \t\n");
 
 	instruction_t instruction_set[] = {
-		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
@@ -27,9 +26,14 @@ int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
 		{"div", divide},
 		{"mul", mul},
 		{"mod", mod},
-		{"pstr", pstr},
 	};
-	data = (argument == 0) ? 0 : atoi(argument);
+	if (argument != NULL)
+		data = atoi(argument);
+	if (strcmp(opcode, "push") == 0)
+	{
+		push(stack, *count, data);
+		found_ins = 1;
+	}
 	for (i = 0; i < sizeof(instruction_set) / sizeof(instruction_set[0]); i++)
 	{
 		if (strcmp(opcode, instruction_set[i].opcode) == 0)
@@ -42,7 +46,6 @@ int parser(char **trimmed_line, unsigned int *count, stack_t **stack)
 	if (!found_ins)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", *count, opcode);
-		free_stack(stack);
 		return (EXIT_FAILURE);
 	}
 	return (0);
