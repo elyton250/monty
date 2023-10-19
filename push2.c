@@ -3,10 +3,11 @@
  * push - Adds an element to the list
  * @head: head of the node
  *@line_number: the error line
+ *@data: the added data to the stack
  * Return: 0 success otherwise -1
  */
 
-void push(stack_t **head, unsigned int line_number)
+void push(stack_t **head, unsigned int line_number, int data)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
 
@@ -16,7 +17,7 @@ void push(stack_t **head, unsigned int line_number)
 		free_stack(head);
 		exit(EXIT_FAILURE);
 	}
-	if (sizeof(data) == sizeof(int))
+	if (data)
 	{
 		if ((*head) == NULL)
 		{
